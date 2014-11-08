@@ -1,0 +1,21 @@
+id: CopyThisEntry
+key: CopyThisEntry
+name: Copy This Entry
+description: <MT_TRANS phrase="This plugin provides a simple way to copy existing entry.">
+version: 1.0
+schema_version: 1
+author_name: 'Six Apart, Ltd.'
+author_link: https://movabletype.org/
+plugin_link: https://github.com/movabletype/mt-plugin-copy-this-entry
+
+l10n_class: CopyThisEntry::L10N
+
+init: $CopyThisEntry::CopyThisEntry::Plugin::init
+
+callbacks:
+    template_param.edit_entry: $CopyThisEntry::CopyThisEntry::Transformer::template_param_edit_entry
+
+applications:
+    cms:
+        methods:
+            copy_this_entry: $CopyThisEntry::CopyThisEntry::CMS::_hdlr_copy_this_entry
