@@ -5,9 +5,10 @@ use warnings;
 use CustomFields::App::CMS;
 
 my $func;
+
 sub init {
     {
-        no strict 'refs';
+        no warnings 'redefine';
         $func = \&CustomFields::App::CMS::populate_field_loop;
         *CustomFields::App::CMS::populate_field_loop = \&_populate_field_loop;
     };
