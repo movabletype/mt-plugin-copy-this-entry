@@ -12,6 +12,7 @@ use vars qw( %Lexicon );
 
 ## plugins/CopyThisEntry/lib/CopyThisEntry/Transformer.pm
 	'Copy This Entry' => 'この記事をコピーする',
+	'Copy of [_1]' => '[_1]のコピー',
 
 );
 

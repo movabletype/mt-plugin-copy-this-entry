@@ -43,12 +43,14 @@ sub template_param_edit_entry {
                         || $col eq 'atom_id'
                         || $col eq 'basename';
 
-                    $param->{$col}       = $origin->$col;
+                    $param->{$col} = $origin->$col;
                 }
 
                 # Change status
                 $param->{new_object} = 1;
                 $param->{status}     = MT::Entry::HOLD();
+                $param->{title}
+                    = $plugin->translate( 'Copy of [_1]', $param->{title} );
                 delete $param->{"status_publish"};
                 delete $param->{"status_review"};
                 delete $param->{"status_spam"};
@@ -76,7 +78,7 @@ sub template_param_edit_entry {
                 my $tags = MT::Tag->join( $tag_delim, $origin->tags );
                 $param->{tags} = $tags;
 
-                #TODO: Will support asset?
+                #TODO: Will support assets?
             }
         }
 
