@@ -59,11 +59,17 @@ sub template_param_edit_entry {
                 $param->{"status_draft"} = 1;
 
                 # Load Categories
-                my $cats = $origin->categories;
-                my @cat_ids;
-                my %places;
-                @cat_ids = map { $_->id } @$cats;
-                $param->{selected_category_loop} = \@cat_ids;
+                my $cats = $origin->__load_category_data;
+                if ( $cats ) {
+                    my @cats;
+                    my $primary_cat = $origin->category->id;
+                    my $categories = $origin->categories;
+                    my @cat_ids;
+                    @cat_ids = map { $_->id }
+                        grep { $_->id != $primary_cat } @$categories;
+                    unshift @cat_ids, $primary_cat;
+                    $param->{selected_category_loop} = \@cat_ids;
+                }
 
                 # Load CustomFields Data
                 require CustomFields::App::CMS;
