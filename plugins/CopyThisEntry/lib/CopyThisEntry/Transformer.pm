@@ -9,7 +9,6 @@ sub template_param_edit_entry {
 
     # Do nothing for new entry.
     return if !$app->param('id') && !$app->param('origin');
-
     # If this request has origin parameter, remove ID from param;
     if ( $app->param('origin') ) {
         my $orig_id     = $app->param('origin');
@@ -60,7 +59,7 @@ sub template_param_edit_entry {
 
                 # Load Categories
                 my $cats = $origin->__load_category_data;
-                if ( $cats ) {
+                if ( @$cats ) {
                     my @cats;
                     my $primary_cat = $origin->category->id;
                     my $categories = $origin->categories;
