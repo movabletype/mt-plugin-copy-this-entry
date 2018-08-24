@@ -101,7 +101,7 @@ sub template_param_edit_entry {
 
     $widget->appendChild(
         $tmpl->createTextNode(
-            '<div style="margin-left: auto; margin-right: auto;"><button type="button" id="copy-this-entry" name="copy-this-entry" class="action button" style="width: 100%;">'
+            '<div style="margin-left: auto; margin-right: auto;"><button type="button" id="copy-this-entry" name="copy-this-entry" class="action button btn btn-default" style="width: 100%;">'
                 . $plugin->translate('Copy This Entry')
                 . '</button></div>'
         )
