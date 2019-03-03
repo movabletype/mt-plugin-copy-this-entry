@@ -109,7 +109,7 @@ sub template_param_edit_entry {
 
     # Insert new widget
     $tmpl->insertBefore( $widget,
-        $tmpl->getElementById('entry-status-widget') );
+        $tmpl->getElementById('entry-publishing-widget') );
 
     # Support Script
     $param->{jq_js_include} ||= '';
