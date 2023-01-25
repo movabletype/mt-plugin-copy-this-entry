@@ -2,7 +2,7 @@ id: CopyThisEntry
 key: CopyThisEntry
 name: Copy This Entry
 description: <MT_TRANS phrase="This plugin provides a simple way to copy existing entry.">
-version: 1.15
+version: 1.16
 schema_version: 1
 author_name: 'Six Apart, Ltd.'
 author_link: https://movabletype.org/
