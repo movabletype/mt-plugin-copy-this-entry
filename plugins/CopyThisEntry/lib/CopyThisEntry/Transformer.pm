@@ -57,6 +57,12 @@ sub template_param_edit_entry {
                 delete $param->{"status_unpublish"};
                 $param->{"status_draft"} = 1;
 
+                # Select current text filter
+                my %text_filters = map { $_ => 1 } split /\s*,\s*/, $param->{convert_breaks};
+                for my $f (@{$param->{text_filters}}) {
+                    $f->{filter_selected} = $text_filters{$f->{filter_key}};
+                }
+
                 # Load Categories
                 my $cats = $origin->__load_category_data;
                 if ( @$cats ) {
